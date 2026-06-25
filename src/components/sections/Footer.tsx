@@ -32,25 +32,31 @@ const Footer = forwardRef<
           selectedFooterStyle !== "followContent" ? "rounded-none" : "",
           "p-2 w-full flex items-center justify-center inset-shadow-sm inset-shadow-(color:--accent-a4)"
         )}>
-        <p className="flex justify-center text-sm text-secondary-foreground theme-text-shadow whitespace-pre">
-          {t("footer.poweredBy")}{" "}
-          <a
-            href="https://github.com/komari-monitor/komari"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600 transition-colors">
-            Komari Monitor
-          </a>
-          {" | "}
-          {t("footer.themeBy")}{" "}
-          <a
-            href="https://github.com/Montia37/komari-theme-purcarte"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600 transition-colors">
-            PurCarte
-          </a>
-        </p>
+        <div className="flex justify-center flex-wrap items-center text-center text-sm text-secondary-foreground theme-text-shadow gap-y-1">
+          <span>Copyright © 秋晓桃</span>
+          <span className="opacity-50 px-2">|</span>
+          <span className="flex items-center">
+            {t("footer.poweredBy")}
+            <a
+              href="https://github.com/komari-monitor/komari"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600 transition-colors ml-1">
+              Komari Monitor
+            </a>
+          </span>
+          <span className="opacity-50 px-2">|</span>
+          <span className="flex items-center">
+            {t("footer.themeBy")}
+            <a
+              href="https://github.com/Montia37/komari-theme-purcarte"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600 transition-colors ml-1">
+              PurCarte
+            </a>
+          </span>
+        </div>
       </Card>
     </footer>
   );
