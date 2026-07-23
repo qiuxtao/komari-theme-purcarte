@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import "./index.css";
+import "@/styles/custom-overrides.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 

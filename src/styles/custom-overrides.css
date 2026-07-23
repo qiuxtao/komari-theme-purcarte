@@ -1,0 +1,101 @@
+/* --- 1. 专属桃粉色定制主题 --- */
+.custom-pink-override {
+  /* 核心主色 #F1828D */
+  --pink-9: #F1828D !important;
+  /* 悬停色 */
+  --pink-10: #e67580 !important;
+
+  /* 配套浅色阶 */
+  --pink-1: #fff5f7 !important;
+  --pink-2: #fff0f2 !important;
+  --pink-3: #ffdfe5 !important;
+  --pink-4: #ffcfd6 !important;
+  --pink-5: #ffbfc8 !important;
+  --pink-6: #faaeb8 !important;
+  --pink-7: #f59aa5 !important;
+  --pink-8: #f28b97 !important;
+  
+  /* 文本色 (深红褐色，保证阅读清晰) */
+  --pink-11: #d15c69 !important;
+  --pink-12: #662028 !important;
+
+  /* Alpha 透明度变量 */
+  --pink-a1: #f1828d0d !important;
+  --pink-a2: #f1828d1a !important;
+  --pink-a3: #f1828d26 !important;
+  --pink-a4: #f1828d33 !important;
+  --pink-a5: #f1828d40 !important;
+  --pink-a6: #f1828d4d !important;
+  --pink-a7: #f1828d66 !important;
+  --pink-a8: #f1828d80 !important;
+  --pink-a9: #f1828db3 !important;
+  --pink-a10: #f1828dcc !important;
+  --pink-a11: #f1828de6 !important;
+  --pink-a12: #f1828df2 !important;
+  
+  --pink-indicator: #F1828D !important;
+  --pink-track: #F1828D !important;
+}
+
+/* 暗色模式适配 */
+.dark.custom-pink-override, .custom-pink-override .dark {
+  --pink-9: #F1828D !important;
+  --pink-10: #ff94a0 !important;
+  
+  --pink-1: #1f1214 !important;
+  --pink-2: #2e1619 !important;
+  --pink-3: #451a20 !important;
+  --pink-4: #5c222b !important;
+  --pink-5: #6e2832 !important;
+  
+  --pink-a1: #f1828d0d !important;
+  --pink-a2: #f1828d1a !important;
+  --pink-a3: #f1828d26 !important;
+  --pink-a4: #f1828d33 !important;
+  --pink-a5: #f1828d40 !important;
+  --pink-a6: #f1828d4d !important;
+  --pink-a7: #f1828d66 !important;
+  --pink-a8: #f1828d80 !important;
+  --pink-a9: #f1828db3 !important;
+  --pink-a10: #f1828dcc !important;
+  --pink-a11: #f1828de6 !important;
+  --pink-a12: #f1828df2 !important;
+
+  --pink-6: #8e3845 !important;
+  --pink-7: #a64555 !important;
+  --pink-8: #cd5a6b !important;
+  --pink-11: #ffb8c0 !important;
+  --pink-12: #ffe0e4 !important;
+}
+
+/* --- 2. 底栏 (Footer) 样式修复 --- */
+
+/* 选中页面底部的 footer 区域 */
+.custom-footer-style footer,
+.custom-footer-style .footer,
+.custom-footer-style div[class*="footer"],
+.custom-footer-style div[class*="Footer"] {
+  /* 强制底栏所有文字使用统一的颜色 (通常是弱化的文本色) */
+  color: var(--pink-11) !important;
+  opacity: 0.9;
+}
+
+/* 选中底栏里的链接 (a 标签) */
+.custom-footer-style footer a,
+.custom-footer-style .footer a,
+.custom-footer-style div[class*="footer"] a {
+  /* 关键：让链接颜色“继承”父元素颜色，而不是显示为显眼的粉色 */
+  color: inherit !important;
+  
+  /* 去掉下划线，让它看起来更像普通文字 */
+  text-decoration: none !important;
+  
+  /* 加一点过渡动画 */
+  transition: opacity 0.2s ease;
+}
+
+/* 只有鼠标放上去时，才稍微改变透明度提示可点击 */
+.custom-footer-style footer a:hover,
+.custom-footer-style .footer a:hover {
+  opacity: 0.7 !important;
+}

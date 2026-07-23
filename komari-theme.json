@@ -4,7 +4,7 @@
     "description": "A frosted glass theme for Komari",
     "version": "tags:VERSION",
     "author": "Montia & Gemini",
-    "url": "https://github.com/Montia37/Komari-theme-purcarte",
+    "url": "https://github.com/qiuxtao/komari-theme-purcarte",
     "preview": "preview.png",
     "configuration": {
         "type": "managed",
@@ -363,6 +363,38 @@
                 "type": "string",
                 "default": "",
                 "help": "使用 key:value,key2:value2 的格式自定义UI文本，value 使用 URL 编码以避免特殊符号。推荐使用管理员登录后的编辑功能而不是手动填写此项，以避免格式错误导致的问题"
+            },
+            {
+                "name": "个人定制项",
+                "type": "title"
+            },
+            {
+                "key": "enableCustomPinkTheme",
+                "name": "启用专属桃粉色全局主题",
+                "type": "switch",
+                "default": true,
+                "help": "开启后，如果主题色选择了 pink，将会被覆盖为高定的专属桃粉色方案"
+            },
+            {
+                "key": "enableCustomFooterStyle",
+                "name": "启用底栏链接沉浸式样式",
+                "type": "switch",
+                "default": true,
+                "help": "开启后，页脚的链接颜色将继承环境文字颜色而不是突出的蓝色，且附带悬停效果"
+            },
+            {
+                "key": "customCopyrightText",
+                "name": "自定义页脚版权文字",
+                "type": "string",
+                "default": "Copyright © 秋晓桃",
+                "help": "位于底栏最前方的自定义版权声明，留空则不显示"
+            },
+            {
+                "key": "customMetaThemeColor",
+                "name": "移动端顶部状态栏颜色",
+                "type": "string",
+                "default": "#f1828d",
+                "help": "定义移动端浏览器顶部的 theme-color (HEX格式)，留空则使用默认色"
             }
         ]
     }

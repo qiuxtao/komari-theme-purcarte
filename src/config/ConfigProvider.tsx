@@ -107,6 +107,31 @@ export function ConfigProvider({ children }: ConfigProviderProps) {
     [config, previewConfig]
   );
 
+  useEffect(() => {
+    // 处理专属桃粉色定制样式
+    if (activeConfig.enableCustomPinkTheme) {
+      document.body.classList.add("custom-pink-override");
+    } else {
+      document.body.classList.remove("custom-pink-override");
+    }
+    
+    // 处理底栏沉浸式链接样式
+    if (activeConfig.enableCustomFooterStyle) {
+      document.body.classList.add("custom-footer-style");
+    } else {
+      document.body.classList.remove("custom-footer-style");
+    }
+    
+    // 动态更新移动端 meta theme-color
+    let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (!metaThemeColor) {
+      metaThemeColor = document.createElement('meta');
+      metaThemeColor.setAttribute('name', 'theme-color');
+      document.head.appendChild(metaThemeColor);
+    }
+    metaThemeColor.setAttribute('content', activeConfig.customMetaThemeColor || "#aa99ec");
+  }, [activeConfig.enableCustomPinkTheme, activeConfig.enableCustomFooterStyle, activeConfig.customMetaThemeColor]);
+
   if (!isLoaded || !config) {
     return (
       <Loading text="加载配置中..." className={!loading ? "fade-out" : ""} />

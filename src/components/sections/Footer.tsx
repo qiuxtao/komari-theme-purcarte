@@ -11,7 +11,7 @@ const Footer = forwardRef<
   }
 >(({ isSettingsOpen }, ref) => {
   const { t } = useLocale();
-  const { selectedFooterStyle } = useAppConfig();
+  const { selectedFooterStyle, customCopyrightText } = useAppConfig();
   const isMobile = useIsMobile();
   return (
     <footer
@@ -33,15 +33,19 @@ const Footer = forwardRef<
           "p-2 w-full flex items-center justify-center inset-shadow-sm inset-shadow-(color:--accent-a4)"
         )}>
         <div className="flex justify-center flex-wrap items-center text-center text-sm text-secondary-foreground theme-text-shadow gap-y-1">
-          <span>Copyright © 秋晓桃</span>
-          <span className="opacity-50 px-2">|</span>
+          {customCopyrightText && (
+            <>
+              <span>{customCopyrightText}</span>
+              <span className="opacity-50 px-2">|</span>
+            </>
+          )}
           <span className="flex items-center">
             {t("footer.poweredBy")}
             <a
               href="https://github.com/komari-monitor/komari"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 transition-colors ml-1">
+              className="text-[var(--accent-11)] hover:text-[var(--accent-12)] hover:drop-shadow-[0_0_8px_var(--accent-a8)] font-bold transition-all ml-1">
               Komari Monitor
             </a>
           </span>
@@ -49,10 +53,10 @@ const Footer = forwardRef<
           <span className="flex items-center">
             {t("footer.themeBy")}
             <a
-              href="https://github.com/Montia37/komari-theme-purcarte"
+              href="https://github.com/qiuxtao/komari-theme-purcarte"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 transition-colors ml-1">
+              className="text-[var(--accent-11)] hover:text-[var(--accent-12)] hover:drop-shadow-[0_0_8px_var(--accent-a8)] font-bold transition-all ml-1">
               PurCarte
             </a>
           </span>

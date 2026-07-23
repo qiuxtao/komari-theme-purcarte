@@ -7,7 +7,7 @@
     <meta
       name="keywords"
       content="server monitor, Komari Monitor, server uptime monitoring, real-time server status, server performance dashboard, monitoring tool" />
-    <meta name="theme-color" content="#f1828d" />
+    <meta name="theme-color" content="#aa99ec" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -17,96 +17,9 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Komari Monitor" />
     <meta name="twitter:description" content="A simple server monitor tool." />
-    <title>秋晓桃の服务器监控站</title>
+    <title>Komari Monitor</title>
     <meta name="description" content="A simple server monitor tool." />
-    <style>
-      /* --- 1. 核心颜色定义 (保持之前的方案) --- */
-      :root {
-        /* 核心主色 #F1828D */
-        --pink-9: #F1828D !important;
-        /* 悬停色 */
-        --pink-10: #e67580 !important;
-
-        /* 配套浅色阶 */
-        --pink-1: #fff5f7 !important;
-        --pink-2: #fff0f2 !important;
-        --pink-3: #ffdfe5 !important;
-        --pink-4: #ffcfd6 !important;
-        --pink-5: #ffbfc8 !important;
-        --pink-6: #faaeb8 !important;
-        --pink-7: #f59aa5 !important;
-        --pink-8: #f28b97 !important;
-        
-        /* 文本色 (深红褐色，保证阅读清晰) */
-        --pink-11: #d15c69 !important;
-        --pink-12: #662028 !important;
-
-        /* Alpha 透明度变量 */
-        --pink-a1: #f1828d0d !important;
-        --pink-a2: #f1828d1a !important;
-        --pink-a3: #f1828d26 !important;
-        --pink-a4: #f1828d33 !important;
-        --pink-a5: #f1828d40 !important;
-        --pink-a6: #f1828d4d !important;
-        --pink-a7: #f1828d66 !important;
-        --pink-a8: #f1828d80 !important;
-        --pink-a9: #f1828db3 !important;
-        --pink-a10: #f1828dcc !important;
-        --pink-a11: #f1828de6 !important;
-        --pink-a12: #f1828df2 !important;
-        
-        --pink-indicator: #F1828D !important;
-        --pink-track: #F1828D !important;
-      }
-
-      /* 暗色模式适配 */
-      .dark {
-        --pink-9: #F1828D !important;
-        --pink-10: #ff94a0 !important;
-        
-        --pink-1: #1f1214 !important;
-        --pink-2: #2e1619 !important;
-        --pink-3: #451a20 !important;
-        --pink-4: #5c222b !important;
-        --pink-5: #6e2832 !important;
-        
-        --pink-a1: #f1828d0d !important;
-        --pink-a2: #f1828d1a !important;
-        --pink-a3: #f1828d26 !important;
-        --pink-a4: #f1828d33 !important;
-        --pink-a5: #f1828d40 !important;
-        --pink-a6: #f1828d4d !important;
-      }
-
-      /* --- 2. 新增：底栏 (Footer) 样式修复 --- */
-      
-      /* 选中页面底部的 footer 区域 */
-      footer, .footer, div[class*="footer"], div[class*="Footer"] {
-        /* 强制底栏所有文字使用统一的颜色 (通常是弱化的文本色) */
-        color: var(--pink-11) !important;
-        opacity: 0.9;
-      }
-
-      /* 选中底栏里的链接 (a 标签) */
-      footer a, .footer a, div[class*="footer"] a {
-        /* 关键：让链接颜色“继承”父元素颜色，而不是显示为显眼的粉色 */
-        color: inherit !important;
-        
-        /* 去掉下划线，让它看起来更像普通文字 */
-        text-decoration: none !important;
-        
-        /* 加一点过渡动画 */
-        transition: opacity 0.2s ease;
-      }
-
-      /* 只有鼠标放上去时，才稍微改变透明度提示可点击 */
-      footer a:hover, .footer a:hover {
-        opacity: 0.7 !important;
-        /* 如果希望悬停时有下划线，把下面这行注释取消 */
-        /* text-decoration: underline !important; */
-      }
-    </style>
-  </head>
+    </head>
   <body>
     <div
       id="background-container"

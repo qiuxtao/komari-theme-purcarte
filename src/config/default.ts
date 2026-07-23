@@ -45,6 +45,10 @@ export interface ConfigOptions {
   selectTrafficProgressStyle: "circular" | "linear"; // 流量进度条样式
   enableListItemProgressBar: boolean; // 是否启用列表视图进度条
   customTexts: string; // 自定义UI文本
+  enableCustomPinkTheme: boolean; // 是否启用专属桃粉色全局主题
+  enableCustomFooterStyle: boolean; // 是否启用专属底栏链接沉浸式样式
+  customCopyrightText: string; // 页面底部自定义的版权文字
+  customMetaThemeColor: string; // 移动端浏览器顶部的状态栏颜色 (HEX)
 }
 
 // 默认配置值
@@ -96,6 +100,10 @@ export const DEFAULT_CONFIG: ConfigOptions = {
   selectTrafficProgressStyle: "linear",
   enableListItemProgressBar: true,
   customTexts: "",
+  enableCustomPinkTheme: true,
+  enableCustomFooterStyle: true,
+  customCopyrightText: "Copyright © 秋晓桃",
+  customMetaThemeColor: "#f1828d",
 };
 // 定义颜色类型
 export type ColorType =
