@@ -12,7 +12,7 @@ import {
   Menu,
 } from "lucide-react";
 import { forwardRef, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useAppConfig } from "@/config";
 import { useTheme } from "@/hooks/useTheme";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -311,22 +311,19 @@ export const Header = forwardRef<HTMLElement, HeaderProps>((props, ref) => {
   return (
     <header
       ref={ref}
-      className={cn(
-        selectedHeaderStyle === "levitation" ? "fixed" : "sticky",
-        "top-0 left-0 right-0 flex z-10"
-      )}
+      className={cn(selectedHeaderStyle === "levitation" ? "" : "", "flex z-10 relative")}
       style={{
         right: isSettingsOpen && !isMobile ? "var(--setting-width)" : "0",
       }}>
       <Card className="rounded-none w-full flex items-center justify-center">
         <div className="w-(--main-width) max-w-screen-2xl py-2 flex items-center justify-between">
           <div className="flex items-center theme-text-shadow text-accent-foreground">
-            <a href="/" className="flex items-center gap-2 text-2xl font-bold">
+            <Link to="/" className="flex items-center gap-2 text-2xl font-bold">
               {enableLogo && logoUrl && (
                 <img src={logoUrl} alt="logo" className="h-8" />
               )}
               {enableTitle && <span>{titleText}</span>}
-            </a>
+            </Link>
           </div>
 
           {!isInstancePage &&

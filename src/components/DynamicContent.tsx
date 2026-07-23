@@ -62,9 +62,13 @@ export function DynamicContent({ children }: { children: ReactNode }) {
     const videoBackground = document.getElementById(
       "video-background"
     ) as HTMLVideoElement;
-    const [size, position] = config.backgroundAlignment
+    const alignment =
+      config.backgroundAlignment ||
+      (config as any).backagroundAlignment ||
+      "cover,top";
+    const [size, position] = alignment
       .split(",")
-      .map((s) => s.trim());
+      .map((s: string) => s.trim());
 
     if (imageBackground) {
       imageBackground.style.backgroundImage = `url(${imageUrl})`;
@@ -92,7 +96,7 @@ export function DynamicContent({ children }: { children: ReactNode }) {
   return (
     <>
       <style>{dynamicStyles}</style>
-      <div className="fade-in">{children}</div>
+      <div className="fade-in w-full h-full">{children}</div>
     </>
   );
 }

@@ -1,6 +1,37 @@
 // src/config/locales.ts
 
 export const defaultTexts = {
+  common: {
+    real_time: "实时",
+    none: "无",
+    reset: "重置",
+    add: "添加",
+    delete: "删除",
+    save: "保存",
+    cancel: "取消",
+    confirm: "确认",
+    details: "详情",
+    close: "关闭",
+    edit: "编辑",
+    enabled: "启用",
+    disabled: "禁用",
+    search: "搜索",
+    refresh: "刷新",
+    retry: "重试",
+    unknown: "未知",
+    name: "名称",
+    status: "状态",
+    server: "服务器",
+    serverList: "服务器列表",
+  },
+  admin: {
+    nodeTable: {
+      dragToReorder: "拖拽重新排序",
+    },
+  },
+  ping: {
+    task: "Ping 任务",
+  },
   node: {
     _: "节点信息",
     name: "节点名称",
@@ -114,9 +145,79 @@ export const defaultTexts = {
     days: "{count}天",
     optionLoad: "负载",
     optionPing: "延迟",
+    serverList: "服务器列表",
   },
   chart: {
     _: "图表信息",
+    // 时间维度
+    minutes: "{count} 分钟",
+    hours: "{count} 小时",
+    days: "{count} 天",
+    customRange: "自定义",
+    quickRange: "快捷选择",
+    startTime: "开始时间",
+    endTime: "结束时间",
+    invalidTimeRange: "开始时间必须早于结束时间",
+    query: "查询",
+    recentDay: "最近 1 天",
+    recentWeek: "最近 1 周",
+    recentDays: "最近 {count} 天",
+    // 仪表盘 & 图表操作
+    dashboard: "图表",
+    addChart: "新增图表",
+    addMetric: "添加指标",
+    removeMetric: "删除指标",
+    type: "类型",
+    // 采样与平滑
+    samplingAlgorithm: "采样算法",
+    samplingAlgorithmTips:
+      '<b>降采样说明</b><br/>查询历史时间范围时，后端会按照请求的时间间隔把数据点归入对齐后的固定时间桶，再用当前选择的算法为每个时间桶计算一个值。<br/><br/>平均值/最小值/最大值/第一个值/最后一个值/标准差和百分位都会在每个时间桶内部计算。空时间桶会保持为空，所以图表上的断点仍然表示该时间段没有数据。',
+    sampling: {
+      average: "平均值",
+      first: "第一个值",
+      last: "最后一个值",
+      max: "最大值",
+      min: "最小值",
+      p70: "第 70 百分位",
+      p95: "第 95 百分位",
+      p99: "第 99 百分位",
+      stddev: "标准差",
+    },
+    downsampleAlgorithm: "降采样",
+    cutPeak: "平滑",
+    fillEmpty: "补空值",
+    // 全局模板
+    saveGlobalTemplate: "保存为全局模板",
+    globalTemplateSaved: "全局图表模板已保存",
+    globalTemplateSaveFailed: "保存全局图表模板失败",
+    // 指标名称
+    cpu_usage: "CPU 使用率",
+    mem_used: "内存",
+    swap_used: "虚拟内存",
+    disk_used: "磁盘",
+    network_up: "上传",
+    network_down: "下载",
+    gpu_memory: "显存使用率",
+    connections: "连接数",
+    tcp_connections: "TCP",
+    udp_connections: "UDP",
+    process: "进程数",
+    usage: "使用率",
+    // 统计
+    avg: "平均值",
+    min: "最小值",
+    max: "最大值",
+    latest: "最新",
+    total: "样本数量",
+    valid: "有效样本",
+    approximate: "近似",
+    interval: "检测间隔",
+    lossRate: "丢包",
+    volatility: "波动",
+    // 显示控制
+    hideAll: "隐藏全部",
+    showAll: "显示全部",
+    // 通用
     loading: "正在加载图表...",
     loadingData: "正在加载图表数据...",
     noData: "暂无数据",
@@ -129,7 +230,6 @@ export const defaultTexts = {
     network: "网络",
     tcpPrefix: "TCP:",
     udpPrefix: "UDP:",
-    connections: "连接数",
     processes: "进程数",
     cpuUsageTooltip: "CPU 使用率",
     memoryUsageTooltip: "内存",
@@ -142,8 +242,6 @@ export const defaultTexts = {
     processesTooltip: "进程数",
     smooth: "平滑",
     connectBreaks: "连接断点",
-    hideAll: "隐藏全部",
-    showAll: "显示全部",
     resetRange: "重置范围",
     oneQuarter: "四分之一",
   },
@@ -163,11 +261,13 @@ export const defaultTexts = {
 
 export const otherTexts = {
   chart: {
-    packetLossCalculationWarning: "<p>丢包率计算算法并不准确，谨慎参考</p>",
-    smoothTooltipContent:
+    cutPeak_tips:
       '<h2 class="text-lg font-bold">关于数据平滑的提示</h2><p>当您开启平滑后，您在统计图中看到的曲线经过<strong>指数加权移动平均 (EWMA)</strong> 算法处理，这是一种常用的数据平滑技术。</p></br><p>需要注意的是，经过EWMA算法平滑后的曲线所展示的数值，<strong>并非原始的、真实的测量数据</strong>。它们是根据EWMA算法计算得出的一个<strong>平滑趋势线</strong>，旨在减少数据波动，使数据模式和趋势更容易被识别。</p></br><p>因此，您看到的数值更像是<strong>视觉上的呈现</strong>，帮助您更好地理解数据的整体走向和长期趋势，而不是每一个时间点的精确真实值。如果您需要查看具体、原始的数据点，请参考未经平滑处理的数据视图。</p>',
     connectBreaksTooltipContent:
       '<h2 class="text-lg font-bold">关于连接断点的提示</h2><p><strong>默认关闭，可在后台配置</strong></p><p>当您开启"连接断点"功能后，图表中的曲线将会跨过那些由于网络问题或其他原因导致的丢包点，形成一条连续的线条。同时，系统会在丢包位置显示<strong>半透明的垂直参考线</strong>来标记断点位置。</p>',
+    packetLossCalculationWarning: "<p>丢包率计算算法并不准确，谨慎参考</p>",
+    smoothTooltipContent:
+      '<h2 class="text-lg font-bold">关于数据平滑的提示</h2><p>当您开启平滑后，您在统计图中看到的曲线经过<strong>指数加权移动平均 (EWMA)</strong> 算法处理，这是一种常用的数据平滑技术。</p></br><p>需要注意的是，经过EWMA算法平滑后的曲线所展示的数值，<strong>并非原始的、真实的测量数据</strong>。它们是根据EWMA算法计算得出的一个<strong>平滑趋势线</strong>，旨在减少数据波动，使数据模式和趋势更容易被识别。</p></br><p>因此，您看到的数值更像是<strong>视觉上的呈现</strong>，帮助您更好地理解数据的整体走向和长期趋势，而不是每一个时间点的精确真实值。如果您需要查看具体、原始的数据点，请参考未经平滑处理的数据视图。</p>',
   },
   setting: {
     title: "编辑配置",

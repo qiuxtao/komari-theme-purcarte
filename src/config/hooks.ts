@@ -2,7 +2,7 @@ import { useContext, useCallback } from "react";
 import { ConfigContext } from "./ConfigContext";
 import type { ConfigContextType } from "./ConfigContext";
 import { DEFAULT_CONFIG } from "./default";
-import { defaultTexts, otherTexts } from "./locales";
+// import { defaultTexts, otherTexts } from "./locales";
 
 /**
  * 安全地获取嵌套对象的属性
@@ -23,16 +23,9 @@ const get = (obj: any, path: string, defaultValue: any = undefined) => {
   return result;
 };
 
-type Paths<T, P extends string = ""> = T extends object
-  ? {
-      [K in keyof T]: T[K] extends object
-        ? Paths<T[K], `${P}${Exclude<K, symbol>}.`>
-        : `${P}${Exclude<K, symbol>}`;
-    }[keyof T]
-  : never;
-
-type MergedTexts = typeof defaultTexts & typeof otherTexts;
-type LocaleKeys = Paths<MergedTexts>;
+// type Paths<T, P extends string = ""> = ...
+// type MergedTexts = typeof defaultTexts & typeof otherTexts;
+// type LocaleKeys = Paths<MergedTexts>;
 
 /**
  * 使用全局配置 Hook，用于获取当前应用配置
@@ -51,7 +44,7 @@ export function useLocale() {
   const { texts } = useAppConfig();
 
   const t = useCallback(
-    (key: LocaleKeys, params?: Record<string, string | number>): string => {
+    (key: string, params?: Record<string, string | number>): string => {
       const text = get(texts, key, key);
 
       if (typeof text !== "string") {

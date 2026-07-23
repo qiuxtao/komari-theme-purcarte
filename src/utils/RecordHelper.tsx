@@ -1,6 +1,8 @@
 import type { Record } from "@/types/LiveData";
 
 export interface RecordFormat {
+  gpu_usage?: number;
+  gpu_detailed?: any;
   client: string;
   time: string;
   cpu: number | null;

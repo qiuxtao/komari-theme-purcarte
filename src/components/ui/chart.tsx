@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
@@ -54,15 +54,14 @@ function ChartContainer({
       <div
         data-slot="chart"
         data-chart={chartId}
-        className={cn("flex justify-center text-xs", className)}
-        style={{ position: "relative", overflow: "hidden" }}
-        {...props}>
+        className={cn(
+          "[&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border flex aspect-video justify-center text-xs [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-surface]:outline-hidden",
+          className
+        )}
+        {...props}
+      >
         <ChartStyle id={chartId} config={config} />
-        <RechartsPrimitive.ResponsiveContainer
-          width="100%"
-          height="100%"
-          debounce={50}
-          style={{ position: "relative", overflow: "hidden" }}>
+        <RechartsPrimitive.ResponsiveContainer>
           {children}
         </RechartsPrimitive.ResponsiveContainer>
       </div>
@@ -174,9 +173,10 @@ function ChartTooltipContent({
   return (
     <div
       className={cn(
-        "border-(--accent-4)/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl",
+        "border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl",
         className
-      )}>
+      )}
+    >
       {!nestLabel ? tooltipLabel : null}
       <div className="grid gap-1.5">
         {payload.map((item, index) => {
@@ -190,7 +190,8 @@ function ChartTooltipContent({
               className={cn(
                 "[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
                 indicator === "dot" && "items-center"
-              )}>
+              )}
+            >
               <>
                 {itemConfig?.icon ? (
                   <itemConfig.icon />
@@ -220,14 +221,15 @@ function ChartTooltipContent({
                   className={cn(
                     "flex flex-1 justify-between leading-none",
                     nestLabel ? "items-end" : "items-center"
-                  )}>
+                  )}
+                >
                   <div className="grid gap-1.5">
                     {nestLabel ? tooltipLabel : null}
                     <span className="text-muted-foreground">
                       {itemConfig?.label || item.name}
                     </span>
                   </div>
-                  {item.value && (
+                  {item.value !== undefined && item.value !== null && (
                     <span className="text-foreground font-mono font-medium tabular-nums">
                       {formatter
                         ? formatter(
@@ -275,7 +277,8 @@ function ChartLegendContent({
         "flex items-center justify-center gap-4",
         verticalAlign === "top" ? "pb-3" : "pt-3",
         className
-      )}>
+      )}
+    >
       {payload.map((item) => {
         const key = `${nameKey || item.dataKey || "value"}`;
         const itemConfig = getPayloadConfigFromPayload(config, item, key);
@@ -285,7 +288,8 @@ function ChartLegendContent({
             key={item.value}
             className={cn(
               "[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3"
-            )}>
+            )}
+          >
             {itemConfig?.icon && !hideIcon ? (
               <itemConfig.icon />
             ) : (

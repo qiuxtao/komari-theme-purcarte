@@ -1,0 +1,2 @@
+import { useAppConfig } from "@/config/hooks";
+export const usePublicInfo = () => { const { publicSettings } = useAppConfig(); return { publicInfo: publicSettings, refresh: () => window.location.reload() }; };

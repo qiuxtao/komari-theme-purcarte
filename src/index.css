@@ -44,6 +44,7 @@
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.625rem;
   --background: #fafafa;
   --foreground: #0a0a0a;
@@ -85,6 +86,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: #0a0a0a;
   --foreground: #fafafa;
   --card: var(--card-dark, #17171780);
@@ -122,6 +124,9 @@
 @layer base {
   * {
     @apply border-(--accent-4)/50 outline-ring/50;
+  }
+  html, body, #root {
+    @apply w-full min-h-screen;
   }
   body {
     @apply bg-background;
@@ -216,4 +221,26 @@
     opacity: 0;
     transform: scale(0.95);
   }
+}
+
+/* PurCarte 精美高颜值自制滚动条 (清晰可见且优雅) */
+.purcarte-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(160, 160, 160, 0.4) transparent;
+}
+.purcarte-scrollbar::-webkit-scrollbar, ::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  display: block !important;
+}
+.purcarte-scrollbar::-webkit-scrollbar-track, ::-webkit-scrollbar-track {
+  background: var(--background) !important;
+}
+.purcarte-scrollbar::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+  background: rgba(160, 160, 160, 0.4) !important;
+  border-radius: 9999px !important;
+  transition: background 0.2s ease;
+}
+.purcarte-scrollbar::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:hover {
+  background: rgba(160, 160, 160, 0.7) !important;
 }

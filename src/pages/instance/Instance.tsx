@@ -46,7 +46,7 @@ const Instance = memo(({ node }: InstanceProps) => {
   }, [node.swap_total, stats, isOnline, t]);
 
   return (
-    <Card className="h-full">
+    <Card>
       <CardHeader className="pb-2">
         <CardTitle>{t("instancePage.title")}</CardTitle>
       </CardHeader>

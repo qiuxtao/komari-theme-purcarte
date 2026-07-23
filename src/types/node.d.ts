@@ -67,7 +67,8 @@ export interface PublicInfo {
   record_preserve_time: number;
   sitename: string;
   theme: string;
-  theme_settings: object | null;
+  theme_settings?: any;
+  metric_retention_days?: number;
 }
 
 export interface HistoryRecord {

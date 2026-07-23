@@ -57,6 +57,11 @@ const osConfigs: OSConfig[] = [
     keywords: ["fedora"],
   },
   {
+    name: "fnOS",
+    image: "/assets/logo/os-fnos.ico",
+    keywords: ["fnos"],
+  },
+  {
     name: "FreeBSD",
     image: "/assets/logo/os-freebsd.svg",
     keywords: ["freebsd", "bsd"],

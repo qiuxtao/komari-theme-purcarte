@@ -186,6 +186,14 @@ export const useThemeManager = () => {
 
   const resolvedAppearance = useSystemTheme(appearance);
 
+  useEffect(() => {
+    if (resolvedAppearance === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [resolvedAppearance]);
+
   return {
     appearance: resolvedAppearance,
     rawAppearance: appearance,

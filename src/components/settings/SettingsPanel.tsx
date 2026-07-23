@@ -182,7 +182,7 @@ const SettingsPanel = ({ isOpen, onClose }: SettingsPanelProps) => {
 
   const panelClasses = isMobile
     ? "fixed bottom-0 left-0 w-full h-3/4 bg-gray-100/90 dark:bg-gray-900/90 theme-card-style shadow-lg z-50 p-4 overflow-y-auto transform transition-transform duration-300 ease-in-out"
-    : "h-screen w-(--setting-width) bg-gray-100/90 dark:bg-gray-900/90 theme-card-style shadow-lg p-4 overflow-y-auto flex-shrink-0";
+    : "h-screen sticky top-0 w-(--setting-width) bg-gray-100/90 dark:bg-gray-900/90 theme-card-style shadow-lg p-4 overflow-y-auto flex-shrink-0";
 
   if (!isOpen) return null;
 

@@ -21,7 +21,7 @@ class ApiService {
     this.baseUrl = "";
   }
 
-  private async rpcCall<T>(
+  public async rpcCall<T>(
     method: string,
     params: any = {}
   ): Promise<ApiResponse<T>> {
