@@ -133,6 +133,7 @@ export const useThemeManager = () => {
     selectThemeColor,
     selectedDefaultView,
     selectMobileDefaultView,
+    enableCustomPinkTheme,
   } = useAppConfig();
   const defaultstatusCardsVisibility = useAppConfig().statusCardsVisibility;
   const isMobile = useIsMobile();
@@ -198,7 +199,7 @@ export const useThemeManager = () => {
     appearance: resolvedAppearance,
     rawAppearance: appearance,
     setAppearance,
-    color,
+    color: enableCustomPinkTheme ? "pink" : color,
     setColor,
     viewMode,
     setViewMode,

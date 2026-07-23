@@ -45,7 +45,7 @@ const Footer = forwardRef<
               href="https://github.com/komari-monitor/komari"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--accent-11)] hover:text-[var(--accent-12)] hover:drop-shadow-[0_0_8px_var(--accent-a8)] font-bold transition-all ml-1">
+              className="text-blue-500 hover:text-blue-600 transition-colors ml-1">
               Komari Monitor
             </a>
           </span>
@@ -56,7 +56,7 @@ const Footer = forwardRef<
               href="https://github.com/qiuxtao/komari-theme-purcarte"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--accent-11)] hover:text-[var(--accent-12)] hover:drop-shadow-[0_0_8px_var(--accent-a8)] font-bold transition-all ml-1">
+              className="text-blue-500 hover:text-blue-600 transition-colors ml-1">
               PurCarte
             </a>
           </span>

@@ -71,20 +71,20 @@
 /* --- 2. 底栏 (Footer) 样式修复 --- */
 
 /* 选中页面底部的 footer 区域 */
-.custom-footer-style footer,
-.custom-footer-style .footer,
-.custom-footer-style div[class*="footer"],
-.custom-footer-style div[class*="Footer"] {
+footer,
+.footer,
+div[class*="footer"],
+div[class*="Footer"] {
   /* 强制底栏所有文字使用统一的颜色 (通常是弱化的文本色) */
-  color: var(--pink-11) !important;
+  color: var(--accent-11) !important;
   opacity: 0.9;
 }
 
 /* 选中底栏里的链接 (a 标签) */
-.custom-footer-style footer a,
-.custom-footer-style .footer a,
-.custom-footer-style div[class*="footer"] a {
-  /* 关键：让链接颜色“继承”父元素颜色，而不是显示为显眼的粉色 */
+footer a,
+.footer a,
+div[class*="footer"] a {
+  /* 关键：让链接颜色“继承”父元素颜色，而不是显示为显眼的颜色 */
   color: inherit !important;
   
   /* 去掉下划线，让它看起来更像普通文字 */
@@ -95,7 +95,7 @@
 }
 
 /* 只有鼠标放上去时，才稍微改变透明度提示可点击 */
-.custom-footer-style footer a:hover,
-.custom-footer-style .footer a:hover {
+footer a:hover,
+.footer a:hover {
   opacity: 0.7 !important;
 }

@@ -373,14 +373,7 @@
                 "name": "启用专属桃粉色全局主题",
                 "type": "switch",
                 "default": true,
-                "help": "开启后，如果主题色选择了 pink，将会被覆盖为高定的专属桃粉色方案"
-            },
-            {
-                "key": "enableCustomFooterStyle",
-                "name": "启用底栏链接沉浸式样式",
-                "type": "switch",
-                "default": true,
-                "help": "开启后，页脚的链接颜色将继承环境文字颜色而不是突出的蓝色，且附带悬停效果"
+                "help": "开启后，无论上方选择了什么颜色，主题都会被强制渲染为您专属定制的桃粉色（此开关不影响后台界面的颜色）。"
             },
             {
                 "key": "customCopyrightText",
@@ -388,13 +381,6 @@
                 "type": "string",
                 "default": "Copyright © 秋晓桃",
                 "help": "位于底栏最前方的自定义版权声明，留空则不显示"
-            },
-            {
-                "key": "customMetaThemeColor",
-                "name": "移动端顶部状态栏颜色",
-                "type": "string",
-                "default": "#f1828d",
-                "help": "定义移动端浏览器顶部的 theme-color (HEX格式)，留空则使用默认色"
             }
         ]
     }

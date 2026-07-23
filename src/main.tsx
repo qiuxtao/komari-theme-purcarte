@@ -221,6 +221,26 @@ export const AppContent = () => {
     }
   }, [isSettingsOpen, isMobile, mainWidth]);
 
+  useEffect(() => {
+    // 延迟一小段时间以确保 Radix UI 渲染完毕并应用了相应的 CSS 变量
+    const timer = setTimeout(() => {
+      const radixTheme = document.querySelector('.radix-themes');
+      if (radixTheme) {
+        const accent9 = getComputedStyle(radixTheme).getPropertyValue('--accent-9').trim();
+        if (accent9) {
+          let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+          if (!metaThemeColor) {
+            metaThemeColor = document.createElement('meta');
+            metaThemeColor.setAttribute('name', 'theme-color');
+            document.head.appendChild(metaThemeColor);
+          }
+          metaThemeColor.setAttribute('content', accent9);
+        }
+      }
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [color, appearance]);
+
   return (
     <Theme
       appearance={appearance}
