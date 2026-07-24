@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export const formatBytes = (bytes: number, isSpeed = false, decimals = 2) => {
   if (bytes === 0) return isSpeed ? "0 B/s" : "0 B";
   const k = 1024;
-  const dm = decimals < 0 ? 0 : decimals;
+  let dm = decimals < 0 ? 0 : decimals;
   const sizes = isSpeed
     ? ["B/s", "KB/s", "MB/s", "GB/s", "TB/s"]
     : ["B", "KB", "MB", "GB", "TB", "PB", "EB"];
@@ -23,7 +23,15 @@ export const formatBytes = (bytes: number, isSpeed = false, decimals = 2) => {
     value = bytes / Math.pow(k, i);
   }
 
-  return parseFloat(value.toFixed(dm)) + " " + sizes[i];
+  if (i < 3) {
+    dm = 0; // B, KB, MB
+  } else if (i === 3) {
+    dm = 1; // GB
+  } else {
+    dm = 2; // TB, PB, EB
+  }
+
+  return value.toFixed(dm) + " " + sizes[i];
 };
 
 // Helper function to format uptime

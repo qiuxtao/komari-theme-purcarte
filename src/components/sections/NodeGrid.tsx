@@ -129,9 +129,9 @@ export const NodeGrid = ({
             </div>
           </div>
           {isShowValueUnderProgressBar && (
-            <div className="flex text-xs items-center justify-between text-secondary-foreground">
+            <div className="flex text-xs items-center justify-end text-secondary-foreground">
               <span>
-                {node.cpu_cores} {t("node.cores")}
+                {load}
               </span>
             </div>
           )}
@@ -145,14 +145,9 @@ export const NodeGrid = ({
             </div>
           </div>
           {isShowValueUnderProgressBar && (
-            <div className="flex text-xs items-center justify-between text-secondary-foreground">
+            <div className="flex text-xs items-center justify-end text-secondary-foreground">
               <span>
-                {node.mem_total > 0
-                  ? `${formatBytes(node.mem_total)}`
-                  : t("node.notAvailable")}
-              </span>
-              <span>
-                {stats ? `${formatBytes(stats.ram)}` : t("node.notAvailable")}
+                {stats ? `${formatBytes(stats.ram)}` : t("node.notAvailable")} / {node.mem_total > 0 ? `${formatBytes(node.mem_total)}` : t("node.notAvailable")}
               </span>
             </div>
           )}
@@ -173,16 +168,11 @@ export const NodeGrid = ({
               </div>
             </div>
             {isShowValueUnderProgressBar && (
-              <div className="flex text-xs items-center justify-between text-secondary-foreground">
+              <div className="flex text-xs items-center justify-end text-secondary-foreground">
                 <span>
                   {node.swap_total > 0
-                    ? `${formatBytes(node.swap_total)}`
+                    ? `${stats ? formatBytes(stats.swap) : t("node.notAvailable")} / ${formatBytes(node.swap_total)}`
                     : t("node.notEnabled")}
-                </span>
-                <span>
-                  {stats
-                    ? `${formatBytes(stats.swap)}`
-                    : t("node.notAvailable")}
                 </span>
               </div>
             )}
@@ -197,14 +187,9 @@ export const NodeGrid = ({
             </div>
           </div>
           {isShowValueUnderProgressBar && (
-            <div className="flex text-xs items-center justify-between text-secondary-foreground">
+            <div className="flex text-xs items-center justify-end text-secondary-foreground">
               <span>
-                {node.disk_total > 0
-                  ? `${formatBytes(node.disk_total)}`
-                  : t("node.notAvailable")}
-              </span>
-              <span>
-                {stats ? `${formatBytes(stats.disk)}` : t("node.notAvailable")}
+                {stats ? `${formatBytes(stats.disk)}` : t("node.notAvailable")} / {node.disk_total > 0 ? `${formatBytes(node.disk_total)}` : t("node.notAvailable")}
               </span>
             </div>
           )}
@@ -222,21 +207,9 @@ export const NodeGrid = ({
                 </span>
               </div>
             </div>
-            <div className="flex text-xs items-center justify-between text-secondary-foreground">
+            <div className="flex text-xs items-center justify-end text-secondary-foreground">
               <span>
-                {formatTrafficLimit(
-                  node.traffic_limit,
-                  node.traffic_limit_type
-                )}
-              </span>
-              <span>
-                {stats
-                  ? `${t("node.uploadPrefix")} ${formatBytes(
-                      stats.net_total_up
-                    )} ${t("node.downloadPrefix")} ${formatBytes(
-                      stats.net_total_down
-                    )}`
-                  : t("node.notAvailable")}
+                {stats ? `${t("node.uploadPrefix")} ${formatBytes(stats.net_total_up)} ${t("node.downloadPrefix")} ${formatBytes(stats.net_total_down)}` : t("node.notAvailable")} / {formatTrafficLimit(node.traffic_limit, node.traffic_limit_type)}
               </span>
             </div>
           </div>
@@ -299,10 +272,6 @@ export const NodeGrid = ({
             </div>
           </div>
         )}
-        <div className="flex justify-between text-xs">
-          <span>{t("node.load")}</span>
-          <span>{load}</span>
-        </div>
         <div className="flex justify-between text-xs">
           <div className="flex justify-start w-full">
             <span className="mr-1">{t("node.expiredAt")}</span>
