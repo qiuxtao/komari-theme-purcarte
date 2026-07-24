@@ -43,6 +43,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+
+
 :root {
   color-scheme: light;
   --radius: 0.625rem;

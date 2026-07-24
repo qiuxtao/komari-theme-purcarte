@@ -372,14 +372,14 @@
                 "key": "enableCustomPinkTheme",
                 "name": "启用专属桃粉色全局主题",
                 "type": "switch",
-                "default": true,
+                "default": false,
                 "help": "开启后，无论上方选择了什么颜色，主题都会被强制渲染为您专属定制的桃粉色（此开关不影响后台界面的颜色）。"
             },
             {
                 "key": "customCopyrightText",
                 "name": "自定义页脚版权文字",
                 "type": "string",
-                "default": "Copyright © 秋晓桃",
+                "default": "",
                 "help": "位于底栏最前方的自定义版权声明，留空则不显示"
             }
         ]

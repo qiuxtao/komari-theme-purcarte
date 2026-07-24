@@ -98,8 +98,8 @@ export const DEFAULT_CONFIG: ConfigOptions = {
   selectTrafficProgressStyle: "linear",
   enableListItemProgressBar: true,
   customTexts: "",
-  enableCustomPinkTheme: true,
-  customCopyrightText: "Copyright © 秋晓桃",
+  enableCustomPinkTheme: false,
+  customCopyrightText: "",
 };
 // 定义颜色类型
 export type ColorType =

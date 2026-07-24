@@ -133,7 +133,7 @@ const InstancePage = () => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row items-start gap-4 my-2 @container text-card-foreground">
+    <div className="flex flex-col lg:flex-row lg:items-start gap-4 my-2 @container text-card-foreground">
       {/* 侧边栏：按分组展示服务器列表 (self-start 完美与右侧齐平，top-20 防跳动) */}
       <div className="hidden lg:flex w-64 xl:w-72 shrink-0 flex-col self-stretch">
         <Card className="sticky top-4 flex flex-col p-3.5 gap-3 h-[calc(100vh-2rem)] min-h-0 purcarte-blur theme-card-style overflow-hidden">

@@ -14,9 +14,9 @@ interface InfoItemProps {
 }
 
 const InfoItem = ({ label, value, className }: InfoItemProps) => (
-  <div className={className}>
+  <div className={`min-w-0 ${className || ""}`}>
     <p className="text-secondary-foreground">{label}</p>
-    {typeof value === "string" ? <p>{value}</p> : value}
+    {typeof value === "string" ? <p className="break-words">{value}</p> : <div className="min-w-0 break-words">{value}</div>}
   </div>
 );
 
@@ -52,7 +52,7 @@ const Instance = memo(({ node }: InstanceProps) => {
       </CardHeader>
       <CardContent className="grid grid-cols-2 @md:grid-cols-3 @lg:grid-cols-4 gap-3">
         <InfoItem
-          className="@md:col-span-2"
+          className="col-span-2 @md:col-span-2"
           label={t("instancePage.cpu")}
           value={`${node.cpu_name} (x${node.cpu_cores})`}
         />
@@ -98,9 +98,10 @@ const Instance = memo(({ node }: InstanceProps) => {
           }
         />
         <InfoItem
+          className="col-span-2 @md:col-span-1"
           label={t("instancePage.totalTraffic")}
           value={
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               {node.traffic_limit !== 0 && isOnline && stats && (
                 <CircleProgress
                   value={trafficPercentage}
@@ -110,8 +111,8 @@ const Instance = memo(({ node }: InstanceProps) => {
                   showPercentage={true}
                 />
               )}
-              <div>
-                <p>
+              <div className="min-w-0">
+                <p className="truncate">
                   {stats && isOnline
                     ? `${t("node.uploadPrefix")} ${formatBytes(
                         stats.net_total_up
@@ -120,7 +121,7 @@ const Instance = memo(({ node }: InstanceProps) => {
                       )}`
                     : t("node.notAvailable")}
                 </p>
-                <p>
+                <p className="truncate">
                   {formatTrafficLimit(
                     node.traffic_limit,
                     node.traffic_limit_type
